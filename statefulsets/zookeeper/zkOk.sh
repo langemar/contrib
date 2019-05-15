@@ -18,7 +18,7 @@
 # healthy, or 1 if the server fails to respond.
 
 ZK_CLIENT_PORT=${ZK_CLIENT_PORT:-2181}
-OK=$(echo ruok | nc --no-shutdown -i 1 127.0.0.1 $ZK_CLIENT_PORT)
+OK=$(echo ruok | nc --no-shutdown -i 1 127.0.0.1 $ZK_CLIENT_PORT 2> /dev/null)
 if [ "$OK" == "imok" ]; then
 	exit 0
 else
